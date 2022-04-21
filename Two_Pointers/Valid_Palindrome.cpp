@@ -1,6 +1,43 @@
 // Valid Palindrome Leetcode
 // Time Complexity: O(n)
-// Space Complexity: O(n)
+// Space Complexity: O(1) **No extra space used
+class Solution {
+public:
+    bool isAlphanumaric(char c){
+        return (int(c) >= 48 and 57 >= int(c) or 
+                int(c) >= 65 and 90 >= int(c) or 
+                int(c) >= 97 and 122 >= int(c));
+    }
+    
+    bool isPalindrome(string s) {
+        int i = 0;
+        int j = s.size() - 1;
+        
+        while(j > i){
+            while(isAlphanumaric(s[i]) == false and j > i){
+                i ++;
+            }
+            while(isAlphanumaric(s[j]) == false and j > 0){
+                j --;
+            }
+
+            s[i] = tolower(s[i]);
+            s[j] = tolower(s[j]);
+            
+            if(s[i] != s[j] and isAlphanumaric(s[i]) and isAlphanumaric(s[j])){
+                return false;
+            }else{
+                i ++;
+                j --;
+            }
+        }
+        return true;
+    }
+};
+
+
+// Time Complexity: O(n)
+// Space Complexity: O(n) **Using extra space
 class Solution {
 public:
     bool isPalindrome(string s) {
