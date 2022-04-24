@@ -11,12 +11,13 @@ public:
         
         while(right >= left){
             
-            if(nums[left] == target){
+            if(nums[left] == target){ // we can ingnor this line form
                 return left;
             }
-            if(nums[right] == target){
+            if(nums[right] == target){ 
                 return right;
-            }
+            }						 // to this line // but i think this make 
+            						 // Binary search more efficient
             
             int mid = (left + right) / 2;
 
